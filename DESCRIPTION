@@ -6,6 +6,6 @@ Author: Who wrote it
 Imports: dplyr,Seurat,SeuratDisk,patchwork,multtest,metap,ggplot2,cowplot,enrichR,gridExtra,ggpubr,RColorBrewer,crank,KEGGREST,GO.db,rWikiPathways,ReactomeContentService4R,msigdb,riverplot,CellChat,dplyr,rvest,stringr
 Maintainer: Anastasis Oulas <anastasioso@cing.ac.cy>
 Description: Ranking scRNA-Seq Cells based on prior knowledge.
-License: CING LICENSE
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
