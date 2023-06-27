@@ -38,6 +38,10 @@ rankCells(disease,path,annotation)
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+The path paremter should point to a directory containing either of the following: 1) The data supplied in seperate subdirectories for all the samples in the analysis. The names given to the sample subdirectories will be used later for labeling the samples and therefore have to be structured correctly in the form of: unique label followd by a number (e.g., Disease1, Disease2, Disease3, Control1, Control2, Control3 - where "Disease" can be substituted with the actual name of the disease characterized by the data). 2) The data in an already inetgrated format in a single subdirectory within the directory provided by the path parameter.
+
+Data can be provided in any of the following supported formats:
+1) barcodes.tsv, genes.tsv, matrix.mtx, 2) H5 format, 3) SEURAT objects. If a metadata file exists with further annontations it may be supplied in the individual subdirectorie(s) as a file with the name "meta.txt".
 }
 \value{
 %%  ~Describe the value returned
