@@ -1,6 +1,6 @@
 # CellRank
 ## Update
-JUN 27, 2023 (Version 1.0.0)
+Jun 27, 2023 (Version 1.0.0)
 
 CellRank is now available vai devtools installation. 
 
