@@ -19,4 +19,4 @@ dplyr, Seurat, SeuratDisk, patchwork, multtest, metap, ggplot2, cowplot, enrichR
 
 Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
 
-Installation on Windows
+Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
