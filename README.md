@@ -11,6 +11,7 @@ CellRank utilizes prior knowledge in combination with expert-user information to
 CellRank R package can be easily installed from Github using devtools:
 
 devtools::install_github("aoulas/CellRank")
+
 Please make sure you have installed all the dependencies. See instruction below.
 
 ## Installation of  dependencies
