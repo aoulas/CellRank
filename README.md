@@ -12,7 +12,7 @@ CellRank R package can be easily installed from Github using devtools:
 
 devtools::install_github("aoulas/CellRank")
 
-Please make sure you have installed all the dependencies. See instruction below.
+Please make sure you have installed all the dependencies. See instructions below.
 
 ## Installation of  dependencies
 ### CRAN packages
