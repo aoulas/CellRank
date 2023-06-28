@@ -6,7 +6,7 @@ CellRank is now available via devtools installation.
 
 <div style='text-align: justify;'>
   Some very long text here.
-  The text must span multiple lines in order to demonstrate that this works.
+  The text must span multiple lines in order to demonstrate that this works.mation to guide the choice of cell types from a scRNA-seq analysis that yield the most biologically meaningful results. Prior knowledge is incorporated in a standardized, structured manner, whereby a checklist is attained by querying MalaCards human disease database with a disease of interest. The checklist is comprised of pathways and drugs and optionally drug mode of actions (MOAs), associated with the disease. The user is prompted to “edit” this checklist by removing or adding terms (in the form of keywords) from the list of predefined terms. The user may also define de-novo, a set of keywords that best suit a hypothesis the user is interested in investigating (hypothesis-driven approach). Once the checklist is finalized a “mapping” step is performed. This is done initially against pathway enrichment results attained from analysing the scRNA-seq data. In addition, the user-
   bobbyhadz.com
 </div>
 
