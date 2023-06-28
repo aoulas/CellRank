@@ -10,12 +10,18 @@ CellRank utilizes prior knowledge in combination with expert-user information to
 ## Installation
 CellRank R package can be easily installed from Github using devtools:
 
+#install.packages("devtools")\
 devtools::install_github("aoulas/CellRank")
-Please make sure you have installed all the dependencies. See instruction below.
+
+Please make sure you have installed all the dependencies. See instructions below.
 
 ## Installation of  dependencies
-dplyr, Seurat, SeuratDisk, patchwork, multtest, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, msigdb, riverplot, CellChat, dplyr, rvest, stringr
-
+### CRAN packages
+Seurat, dplyr, patchwork, multtest, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, riverplot, rvest, stringr.
+### Bioconductor packages
+KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, msigdb.
+### GitHub packages
+SeuratDisk, CellChat.
 
 Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
 
