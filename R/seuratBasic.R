@@ -506,11 +506,11 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
   write.table(TotalNumberDEGsNorm,"TotalNumberDEGsNormPac.txt",quote = F,row.names = T,sep = "\t")
 
   # What proportion of cells are in each cluster?
-  pie(prop.table(table(loaded.dataSO.combined$loaded.dataSO.combined[[usercelltype]][,1])))
+  pie(prop.table(table(loaded.dataSO.combined[[usercelltype]][,1])))
   #prop.table(table(Idents(loaded.dataSO.combined))) #same result
 
   # How does cluster membership vary by condition?
-  tableofcellconts<-table(loaded.dataSO.combined$loaded.dataSO.combined[[usercelltype]][,1], loaded.dataSO.combined$loaded.dataSO.combined[[userlabel]][,1])
+  tableofcellconts<-table(loaded.dataSO.combined[[usercelltype]][,1],loaded.dataSO.combined[[userlabel]][,1])
 
   # What proportion of cells are in each cluster by condition
   proportions<-as.data.frame(prop.table(table(loaded.dataSO.combined[[usercelltype]][,1], loaded.dataSO.combined[[userlabel]][,1]), margin = 2))
