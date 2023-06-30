@@ -1,4 +1,6 @@
 rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TRUE,userlabel="label",usercelltype="celltype"){
+  library(enrichR)
+  library(ReactomeContentService4R)
   if (missing(disease)) cat("Argument disease is missing") else cat(paste("Argument disease =", disease));
   cat ("\n");
   if (missing(path)) cat("Argument path is missing") else cat(paste("Argument path =", path));
@@ -256,7 +258,7 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
 
     DimPlot(loaded.dataSO.combined, reduction = "umap",label = TRUE)
 
-    #Change the Labels
+    #Change the Labels #issue here if no number after label recheck!!!!
     loaded.dataSO.combined$celltype.label <- paste(Idents(loaded.dataSO.combined), gsub("[0-9]+","",loaded.dataSO.combined$orig.ident), sep = "_")
     loaded.dataSO.combined$label <- gsub("[0-9]+","",loaded.dataSO.combined$orig.ident)
     loaded.dataSO.combined$celltype <- Idents(loaded.dataSO.combined)
@@ -510,7 +512,7 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
   #prop.table(table(Idents(loaded.dataSO.combined))) #same result
 
   # How does cluster membership vary by condition?
-  tableofcellconts<-table(loaded.dataSO.combined[[usercelltype]][,1],loaded.dataSO.combined[[userlabel]][,1])
+  tableofcellconts<-table(loaded.dataSO.combined[[usercelltype]][,1], loaded.dataSO.combined[[userlabel]][,1])
 
   # What proportion of cells are in each cluster by condition
   proportions<-as.data.frame(prop.table(table(loaded.dataSO.combined[[usercelltype]][,1], loaded.dataSO.combined[[userlabel]][,1]), margin = 2))
