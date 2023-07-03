@@ -17,9 +17,9 @@ Please make sure you have installed all the dependencies. See instructions below
 
 ## Installation of  dependencies
 ### CRAN packages
-Seurat, dplyr, patchwork, multtest, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, riverplot, rvest, stringr.
+Seurat, dplyr, patchwork, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, riverplot, rvest, stringr.
 ### Bioconductor packages
-KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, msigdb.
+KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, multtest, msigdb.
 ### GitHub packages
 SeuratDisk, CellChat.
 
