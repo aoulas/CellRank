@@ -1,4 +1,4 @@
-rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TRUE,userlabel="label",usercelltype="celltype",keywordsWikiUser,keywordsKEGGUser,keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser){
+rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TRUE,userlabel,usercelltype,keywordsWikiUser,keywordsKEGGUser,keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser){
   library(enrichR)
   library(ReactomeContentService4R)
   library(GO.db)
@@ -6,6 +6,28 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
   cat ("\n");
   if (missing(path)) cat("Argument path is missing") else cat(paste("Argument path =", path));
   cat("\n\n");
+
+  if(annotate==TRUE){
+    userlabel<-"label"
+    usercelltype<-"celltype"
+  }else{
+    if (missing(userlabel)) {
+      cat("If annotate is FALSE Argument userlabel must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else{
+      cat(paste("Argument userlabel =", userlabel));
+      cat ("\n");
+    }
+    if (missing(usercelltype)) {
+      cat("If annotate is FALSE Argument usercelltype must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else{
+      cat(paste("Argument usercelltype =", usercelltype));
+      cat ("\n");
+    }
+  }
   if(scenario !="Hypothesis" && scenario !="Malacards"){
     cat("Argument scenario can only take values 'Malacards' or 'Hypothesis'")
     cat ("\n");
@@ -71,10 +93,7 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
   print(paste("Starting Analysis for",disease,sep=" "))
   setwd(path)
 
-  if(annotate==TRUE){
-    userlabel<-"label"
-    usercelltype<-"celltype"
-  }
+
 
 
   ##########################################Run analysis#############################################################################

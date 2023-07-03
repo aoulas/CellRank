@@ -9,7 +9,7 @@ Extract prior knowledge from MalaCards
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-extractMalacards(files)
+extractMalacards(disease,files,path)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
