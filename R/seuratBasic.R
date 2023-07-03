@@ -1,11 +1,73 @@
-rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TRUE,userlabel="label",usercelltype="celltype"){
+rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TRUE,userlabel="label",usercelltype="celltype",keywordsWikiUser,keywordsKEGGUser,keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser){
   library(enrichR)
   library(ReactomeContentService4R)
+  library(GO.db)
   if (missing(disease)) cat("Argument disease is missing") else cat(paste("Argument disease =", disease));
   cat ("\n");
   if (missing(path)) cat("Argument path is missing") else cat(paste("Argument path =", path));
   cat("\n\n");
+  if(scenario !="Hypothesis" && scenario !="Malacards"){
+    cat("Argument scenario can only take values 'Malacards' or 'Hypothesis'")
+    cat ("\n");
+    stop("Execution terminated")
+  }else{
+    cat(paste("Argument Scenario =", scenario));
+    cat ("\n");
+  }
+  if(scenario=="Hypothesis"){
+    if (missing(keywordsWikiUser)) {
+      cat("If Hypothesis scenario is selected the argument keywordsWikiUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else{
+      cat(paste("Argument keywordsWikiUser =", keywordsWikiUser));
+      cat ("\n");
+    }
+    if (missing(keywordsKEGGUser)){
+      cat("If Hypothesis scenario is selected the argument keywordsKEGGUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else {
+      cat(paste("Argument keywordsKEGGUser =", keywordsKEGGUser));
+      cat("\n\n");
+    }
 
+    if (missing(keywordsGOUser)){
+      cat("If Hypothesis scenario is selected the argument keywordsGOUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else {
+      cat(paste("Argument keywordsGOUser =", keywordsGOUser));
+      cat("\n\n");
+    }
+
+    if (missing(keywordsMSIGUser)){
+      cat("If Hypothesis scenario is selected the argument keywordsMSIGUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else {
+      cat(paste("Argument keywordsMSIGUser =", keywordsMSIGUser));
+      cat("\n\n");
+    }
+
+    if (missing(keywordsReactUser)){
+      cat("If Hypothesis scenario is selected the argument keywordsReactUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else {
+      cat(paste("Argument keywordsReactUser =", keywordsReactUser));
+      cat("\n\n");
+    }
+
+    if (missing(keywordsMOAUser)){
+      cat("If Hypothesis scenario is selected the argument keywordsMOAUser must also be provided")
+      cat ("\n");
+      stop("Execution terminated")
+    }else {
+      cat(paste("Argument keywordsMOAUser =", keywordsMOAUser));
+      cat("\n\n");
+    }
+  }
   print(paste("Starting Analysis for",disease,sep=" "))
   setwd(path)
 
@@ -15,7 +77,7 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
   }
 
 
-  ##########################################Run Integrated analysis#############################################################################
+  ##########################################Run analysis#############################################################################
   dirs <- list.dirs()
 
   loaded.dataSO.list<-c()
@@ -315,25 +377,11 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
     )
 
   }else{
-    if(disease=="LAM"){
-      keywordsWiki<-c("MTOR","PI3K","MAPK","apoptosis","NF-k","TNF")#,"estrogen" #LAM
-      keywordsKEGG<-c("MTOR","PI3K","MAPK","apoptosis","NF-k","TNF")
-      keywordsGO<-c("MTOR","PI3K","MAPK","apoptosis","NF-k","TNF")#"JAK","STAT","Cytokine","Inflammation","Th17","Th1","IL-"
-      keywordsMSIG<-c("MTOR","PI3K","MAPK","apoptosis","NF-k","TNF")
-      keywordsReact<-c("MTOR signalling","PI3K","MAPK","apoptosis","NF-k","TNF")
-    }else if(disease=="autism"){
-      keywordsWiki<-c("autism","Thyroid hormone")
-      keywordsKEGG<-c("Pathways of neurodegeneration","Prion","Alzheimer","Parkinson","ALS","axon")
-      keywordsGO<-c("axon","synapse","neurotransmitter","neuron","PI3K","MAPK","apoptosis","NF-k","TNF","JAK","STAT","Cytokine","Inflammation","Th17","Th1","IL-")
-      keywordsMSIG<-c("Oxidative","PI3K","MAPK","apoptosis","NF-k","TNF","JAK","STAT","Cytokine","Inflammation","Th17","Th1","IL-")
-      keywordsReact<-c("Pathways of neurodegeneration","Prion","Alzheimer","Parkinson","ALS","axon")
-    }else{
-      keywordsWiki<-c("SARS-CoV-2","Infectious disease","Innate Immune","Alzheimer","Huntington","autism")
-      keywordsKEGG<-c("Corona disease","viral","Prion","Alzheimer","Parkinson","ALS","axon")
-      keywordsGO<-c("axon","synapse","neurotransmitter","neuron","PI3K","MAPK","apoptosis","NF-k","TNF","JAK","STAT","Cytokine","Inflammation","Th17","Th1","IL-")
-      keywordsMSIG<-c("Oxidative","PI3K","MAPK","apoptosis","NF-k","TNF","JAK","STAT","Cytokine","Inflammation","Th17","Th1","IL-")
-      keywordsReact<-c("SARS-CoV-2","Infectious disease","Innate Immune","Alzheimer","Huntington","autism")
-    }
+    keywordsWiki<-keywordsWikiUser
+    keywordsKEGG<-keywordsKEGGUser
+    keywordsGO<-keywordsGOUser
+    keywordsMSIG<-keywordsMSIGUser
+    keywordsReact<-keywordsReactUser
 
     termsWiki<-c()
     indexWiki<-1
@@ -431,17 +479,7 @@ rankCells<-function(disease,path,annotate=TRUE,scenario="Malacards",checkdrug=TR
     termsMOA<-keywordsMOA
   }else{
     drugInfo<-read.delim("../drug_repurposing_hub.txt")
-    #LAM
-    if(disease=="LAM"){
-      keywordsMOA<-c("CDK inhibitor","MTOR inhibitor","MEK inhibitor")
-    }else if(disease=="autism"){
-      #ASD
-      keywordsMOA<-c("dopamine receptor antagonist","choline","histamine","serotonin")
-    }else{
-      #COVID
-      keywordsMOA<-c("dopamine receptor antagonist","choline","histamine","serotonin")
-    }
-
+    keywordsMOA<-keywordsMOAUser
 
     termsMOA<-c()
     for(KI in 1:length(keywordsMOA)){

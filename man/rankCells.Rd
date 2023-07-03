@@ -35,6 +35,24 @@ rankCells(disease,path,annotation)
   \item{usercelltype}{
   \code{Define the name of the SEURAT object column containing cell cluster IDs (only for annotated data)}
   }
+  \item{keywordsWikiUser}{
+  \code{Define the prio knowdledge from WIKI pathways (only for Hypothesis-driven scenario)}
+  }
+  \item{keywordsKEGGUser}{
+  \code{Define the prio knowdledge from KEGG pathways (only for Hypothesis-driven scenario)}
+  }
+  \item{keywordsGOUser}{
+  \code{Define the prio knowdledge from GO Biological processes (only for Hypothesis-driven scenario)}
+  }
+  \item{keywordsMSIGUser}{
+  \code{Define the prio knowdledge from MSIG pathways (only for Hypothesis-driven scenario)}
+  }
+  \item{keywordsReactUser}{
+  \code{Define the prio knowdledge from REACTOME pathways (only for Hypothesis-driven scenario)}
+  }
+  \item{keywordsMOAUser}{
+  \code{Define the prio knowdledge from CMAP drug MOAs (only for Hypothesis-driven scenario)}
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -53,6 +71,12 @@ Data can be provided in any of the following supported formats:
 \item{checkdrug }{A Boolean (TRUE/FALSE) denoting whether use drug names (defauls=TRUE) alternative option for MOAs=FALSE.}
 \item{userlabel }{A  Character string with the name of the SEURAT object column which contains the information labels with respect to the conditions of the experiment (disease-control labels).}
 \item{usercelltype }{A  Character string with the name of the SEURAT object column which contains the annotated cell cluster IDs.}
+\item{keywordsWikiUser }{A  Character vector with the names of WIKI pathways to be used as prior knwoledge.}
+\item{keywordsKEGGUser }{A  Character vector with the names of KEGG pathways to be used as prior knwoledge.}
+\item{keywordsGOUser }{A  Character vector with the names of GO Biological processes to be used as prior knwoledge.}
+\item{keywordsMSIGUser }{A  Character vector with the names of MSIG pathways to be used as prior knwoledge.}
+\item{keywordsReactUser }{A  Character vector with the names of REACTOME pathways to be used as prior knwoledge.}
+\item{keywordsMOAUser }{A  Character vector with the names of drig MOAs from CMAP to be used as prior knwoledge.}
 %% ...
 }
 \references{
