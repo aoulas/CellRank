@@ -1,4 +1,5 @@
 runCellChat<-function(loaded.dataSO.combined,labelsC,cellIDs){
+  library(CellChat)
   options(stringsAsFactors = FALSE)
   LablesUniq<-unique(as.character(loaded.dataSO.combined[[labelsC]][,1]))
   indexdf.netlist<-1
@@ -107,9 +108,8 @@ runCellChat<-function(loaded.dataSO.combined,labelsC,cellIDs){
 
     groupSize <- as.numeric(table(cellchat@idents))
     par(mfrow = c(1,2), xpd=TRUE)
-    netVisual_circle(cellchat@net$count, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Number of interactions")
-    netVisual_circle(cellchat@net$weight, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Interaction weights/strength")
-
+    netVisual_circle(cellchat@net$count, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = paste(labelIndex, "Number of interactions",sep=" "))
+    netVisual_circle(cellchat@net$weight, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = paste(labelIndex, "Interaction weights/strength",sep=" "))
   }
 
   #comparing number of interactions between disease/control
