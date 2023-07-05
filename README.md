@@ -50,9 +50,8 @@ extractMalacards(disease = disease,files = c(name-of-html-file),path = path)
 annotate<-TRUE
 userlabel<-"label"
 usercelltype<-"celltype"
-
-
 checkdrug<-TRUE
+
 #Run basic analysis and search databases
 listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
           usercelltype = usercelltype,scenario = "Malacards",keywordsWikiUser = keywordsWiki,keywordsKEGGUser = keywordsKEGG,
@@ -61,7 +60,7 @@ listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,
 
 
 
-#Perform mapping and ranking steps you can use the output from the runBasicAnalysis() diretly in the rankCells() function
+#Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
 listofCellRanks<-rankCells(listofoutput[[1]],"Cell",listofoutput[[2]],listofoutput[[3]],listofoutput[[4]],
 listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,12,12,checkdrug,scenario="Malacards")
 
