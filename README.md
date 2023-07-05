@@ -70,10 +70,10 @@ listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,
 foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
 
 #Peform basic plots
-plotRanks("filename-to-Ranking-results")
-plotCellChat("filename-to-CellChat-results")
-plotTotalNumberDEGs("filename-to-Total-DEG-results")
-plotProportions("filename-to-Cell-Proportion-results")
+plotRanks("filename-of-Ranking-results")
+plotCellChat("filename-of-CellChat-results")
+plotTotalNumberDEGs("filename-of-Total-DEG-results")
+plotProportions("filename-of-Cell-Proportion-results")
 ```
 
 
