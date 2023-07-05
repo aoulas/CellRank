@@ -40,6 +40,7 @@ For a differnet disease you can change the name of the disease in the url above.
 
 ### Run CellRank
 ```
+library(CellRank)
 #Extract the relevant files from the MalaCards .html file downloaded in the above step
 #Define arguments for CellRank extractMalacards() function
 path<-"path-to-where-data-was-extracted"
