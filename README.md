@@ -32,7 +32,7 @@ Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
 A test datsets from lymphangioleiomyomatosis (LAM) disease and control (Donor) samples is available for download [here](https://bioinformatics.cing.ac.cy/downloads/scRNA/LAM.tar.gz). Extract data in a local directory.
 
 ### Run Cell Rank
-'
+```
 #Define arguments for CellRank\
 userlabel<-"label"\
 usercelltype<-"celltype"\
@@ -59,7 +59,7 @@ plotRanks(filename-to-Ranking-results)\
 plotCellChat(filename-to-CellChat-results)\
 plotTotalNumberDEGs(filename-to-Total-DEG-results)\
 plotProportions(filename-to-Cell-Proportion-results)\
-'
+```
 
 
 
