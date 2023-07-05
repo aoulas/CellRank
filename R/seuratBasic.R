@@ -229,7 +229,7 @@ runBasicAnalysis<-function(disease,path,annotate=TRUE,scenario="Malacards",check
   options(future.globals.maxSize = 8000 * 1024^2)
   if(index==2){
     loaded.dataSO.combined <-loaded.dataSO
-    plot2
+    plot(plot2)
   }else{
     do.call("grid.arrange", c(plot.list))#, ncol = (index-1))
     features <- SelectIntegrationFeatures(object.list = loaded.dataSO.list)

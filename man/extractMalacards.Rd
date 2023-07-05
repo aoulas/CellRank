@@ -31,8 +31,8 @@ extractMalacards(disease,files,path)
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 \item{disease }{A Character string with the name of disease}
-\item{files }{a vector containing characters strings of file name(s) of downloaded html disease page(s) from MalaCards}
-\item{path }{a characters strings with the path to the directory where html files are stored. By defult the same path will also be used to write output files}
+\item{files }{A vector containing characters strings of file name(s) of downloaded html disease page(s) from MalaCards}
+\item{path }{A character strings with the path to the directory where html files are stored. By defult the same path will also be used to write output files}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
 }

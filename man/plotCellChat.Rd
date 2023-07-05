@@ -1,36 +1,31 @@
-\name{runCellChat}
-\alias{runCellChat}
+\name{plotCellChat}
+\alias{plotCellChat}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-Run CellChat for diease and control samples for each cell type in the experiment
+Plots CellChat Output
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-runCellChat(seuratObject,labels,cellIDs)
+plotCellChat(filename,title)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{seuratObject}{
-  \code{The SEURAT object to analyse}
-  }
-  \item{labels}{
-  \code{Define the name of the SEURAT object column containing disease-control labels (if data is not annotated this needs to be defined, otherwise if will take the default value 'label')}
-  }
-  \item{cellIDs}{
-  \code{Define the name of the SEURAT object column containing cell cluster IDs (if data is not annotated this needs to be defined, otherwise if will take the default value 'celltype')}
-  }
+  \item{x}{
+%%     ~~Describe \code{x} here~~
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-\item{seuratObject }{A SEURAT object obtained from teh basic analysis funtion}
-\item{labels }{A  Character String with the name of the column in the SEURAT object defining the sample labels to be used for DEG identification.}
-\item{cellIDs }{A  Character String with the name of the column in the SEURAT object defining the annotated cell IDs.}
-
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
 }
 \references{
 %% ~put references to the literature/web site here ~

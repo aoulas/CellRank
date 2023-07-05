@@ -40,10 +40,10 @@ cellIDs,nposPathKEGG,nposPathGO,nposMOA,checkdrug)
   \code{Define the prior knowdledge drugs or drug MOAs from CMAP}
   }
   \item{labels}{
-  \code{Define the name of the SEURAT object column containing disease-control labels (only for annotated data)}
+  \code{Define the name of the SEURAT object column containing disease-control labels (if data is not annotated this needs to be defined, otherwise if will take the default value 'label')}
   }
   \item{cellIDs}{
-  \code{Define the name of the SEURAT object column containing cell cluster IDs (only for annotated data)}
+  \code{Define the name of the SEURAT object column containing cell cluster IDs (if data is not annotated this needs to be defined, otherwise if will take the default value 'celltype')}
   }
   \item{checkdrug}{
   \code{Define whether to use drug names (MalaCards approach=default), or dug mode of actions (MOAs) (Hypothesis-driven)}

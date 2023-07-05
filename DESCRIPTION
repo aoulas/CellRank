@@ -3,7 +3,7 @@ Type: Package
 Title: Ranking scRNA-Seq Cells
 Version: 0.1.0
 Author: Anastasis Oulas
-Imports: Seurat,SeuratDisk,patchwork,multtest,metap,ggplot2,cowplot,enrichR,gridExtra,ggpubr,RColorBrewer,crank,KEGGREST,GO.db,rWikiPathways,ReactomeContentService4R,msigdb,riverplot,CellChat,dplyr,rvest,stringr
+Imports: Seurat,SeuratDisk,patchwork,multtest,metap,ggplot2,cowplot,enrichR,gridExtra,ggpubr,RColorBrewer,crank,KEGGREST,GO.db,rWikiPathways,ReactomeContentService4R,msigdb,riverplot,CellChat,dplyr,rvest,stringr,tidyr
 Maintainer: Anastasis Oulas <anastasioso@cing.ac.cy>
 Description: Ranking scRNA-Seq Cells based on prior knowledge.
 License: GPL (>= 2)

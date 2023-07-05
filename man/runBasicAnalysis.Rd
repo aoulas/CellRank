@@ -23,19 +23,19 @@ keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser)
   \code{The path to the directory containing the data}
   }
   \item{annotate}{
-  \code{Define whether the data is annotated or if annoation is required}
+  \code{Define whether the data is annotated or if annoation is required (default=TRUE). If FALSE then annotation will be performed automatically using the 100 most significant marker genes, for each cell type, across three marker gene databases ("PanglaoDB_Augmented_2021","CellMarker_Augmented_2021","Tabula_Sapiens")}
   }
   \item{scenario}{
   \code{Define which scenario/approcah to use (takes two values: Malacards=default, or Hypothesis)}
   }
   \item{checkdrug}{
-  \code{Define whether to use drug names (MalaCards approach=default), or dug mode of actions (MOAs) (Hypothesis-driven)}
+  \code{Define whether to use drug names for the Malcards approach (default=TRUE), or dug mode of actions (MOAs) (Hypothesis-driven)}
   }
   \item{userlabel}{
-  \code{Define the name of the SEURAT object column containing disease-control labels (only for annotated data)}
+  \code{Define the name of the SEURAT object column containing disease-control labels (if data is not annotated this needs to be defined, otherwise if will take the default value 'label')}
   }
   \item{usercelltype}{
-  \code{Define the name of the SEURAT object column containing cell cluster IDs (only for annotated data)}
+  \code{Define the name of the SEURAT object column containing cell cluster IDs (if data is not annotated this needs to be defined, otherwise if will take the default value 'celltype')}
   }
   \item{keywordsWikiUser}{
   \code{Define the prior knowdledge from WIKI pathways (only for Hypothesis-driven scenario)}
@@ -68,9 +68,9 @@ Data can be provided in any of the following supported formats:
 %%  If it is a LIST, use
 \item{disease }{A Character string with the name of disease}
 \item{path }{A Character string with a valid path to the directory containing the scRNA-Seq data.}
-\item{annotate }{A Boolean (TRUE/FALSE) denoting whether to annotate the data.}
+\item{annotate }{A Boolean (TRUE/FALSE) denoting whether to annotate the data (default=TRUE).}
 \item{scenario }{A  Character string with the name of scenarion (default="Malacards") alternative option="Hypothesis".}
-\item{checkdrug }{A Boolean (TRUE/FALSE) denoting whether use drug names (defauls=TRUE) alternative option for MOAs=FALSE.}
+\item{checkdrug }{A Boolean (TRUE/FALSE) denoting whether use drug names (default=TRUE) alternative option for MOAs=FALSE.}
 \item{userlabel }{A  Character string with the name of the SEURAT object column which contains the information labels with respect to the conditions of the experiment (disease-control labels).}
 \item{usercelltype }{A  Character string with the name of the SEURAT object column which contains the annotated cell cluster IDs.}
 \item{keywordsWikiUser }{A  Character vector with the names of WIKI pathways to be used as prior knowledge.}
