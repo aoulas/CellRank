@@ -36,7 +36,7 @@ Paste the following link in your borwser.
 ```
 https://www.malacards.org/card/lymphangioleiomyomatosis?showAll=TRUE
 ```
-For a differnet disease you can change the name of the disease in the url above. Make sure the disease exists with the same name in the database. Ensure to add the 'showAll=TRUE' flag to expand all tables in the web page (this may take some time to load). Once the page has loaded right-click an get save-as to download teh html content to the same directory as the test data downlaoded above.
+For a differnet disease you can change the name of the disease in the url above. Make sure the disease exists with the same name in the database. Ensure to add the 'showAll=TRUE' flag to expand all tables in the web page (this may take some time to load). Once the page has loaded right-click an click save-as to download the html content to the same directory as the test data downloaded above.
 
 ### Run CellRank
 ```
