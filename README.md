@@ -56,9 +56,7 @@ scenario<-"Malacards"
 
 #Run basic analysis and search databases
 listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
-          usercelltype = usercelltype,scenario=scenario,keywordsWikiUser = keywordsWiki,keywordsKEGGUser = keywordsKEGG,
-          keywordsGOUser =keywordsGO,keywordsMSIGUser = keywordsMSIG,keywordsReactUser = keywordsReact,
-          keywordsMOAUser = keywordsMOA)
+          usercelltype = usercelltype,scenario=scenario)
 
 
 
