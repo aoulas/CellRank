@@ -15,7 +15,7 @@ devtools::install_github("aoulas/CellRank")
 
 Please make sure you have installed all the dependencies. See instructions below.
 
-## Installation of  dependencies
+## Installation of dependencies
 ### CRAN packages
 Seurat, dplyr, patchwork, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, riverplot, rvest, stringr.
 ### Bioconductor packages
@@ -26,3 +26,6 @@ SeuratDisk, CellChat.
 Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
 
 Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
+
+## Tutorial
+### Downlaod test data from lymphangioleiomyomatosis (LAM) disease and control (Donor) samples [here](https://bioinformatics.cing.ac.cy/downloads/scRNA/LAM.tar.gz)
