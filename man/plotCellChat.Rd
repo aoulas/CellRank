@@ -3,29 +3,29 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-Plots CellChat Output
+Plot the CellChat Output
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plotCellChat(filename,title)
+plotCellChat(filename,title= "CellChat Rankings")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
+  \item{filename}{
+  \code{Name of the file with CelChat output}
+  }
+  \item{title}{
+  \code{Title for the plot (Default = 'CellChat Rankings')}
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+\item{filename }{A character string of the file name with the CellChat output}
+\item{title }{A character string to use as title for the plot (Default = 'CellChat Rankings')}
 }
 \references{
 %% ~put references to the literature/web site here ~
