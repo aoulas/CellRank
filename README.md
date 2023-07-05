@@ -58,11 +58,17 @@ scenario<-"Malacards"
 listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
           usercelltype = usercelltype,scenario=scenario)
 
-
+seuratObject<-listofoutput[[1]]
+priorknowledgePathsKEGG<-listofoutput[[2]]
+priorknowledgePathsGO<-listofoutput[[3]]
+priorknowledgePathsMSIG<-listofoutput[[4]]
+priorknowledgePathsWiki<-listofoutput[[5]]
+priorknowledgePathsReact<-listofoutput[[6]]
+priorknowledgeDRUGSMOA<-listofoutput[[7]]
 
 #Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
-listofCellRanks<-rankCells(listofoutput[[1]],"Cell",listofoutput[[2]],listofoutput[[3]],listofoutput[[4]],
-listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,12,12,checkdrug,scenario=scenario)
+listofCellRanks<-rankCells(seuratObject,"Cell",priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
+priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,12,12,12,checkdrug,scenario=scenario)
 
 #Run CellChat - note the first label is considered as the reference (control)
 foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
