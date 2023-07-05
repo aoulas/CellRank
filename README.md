@@ -32,7 +32,7 @@ Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
 A test datsets from lymphangioleiomyomatosis (LAM) disease and control (Donor) samples is available for download [here](https://bioinformatics.cing.ac.cy/downloads/scRNA/LAM.tar.gz). Extract data in a local directory.
 
 ### Extract prior knowledge from MalaCards database
-Paste the following command in your borwser.\
+Paste the following link in your borwser.
 ```
 https://www.malacards.org/card/lymphangioleiomyomatosis?showAll=TRUE
 ```
