@@ -41,10 +41,12 @@ For a differnet disease you can change the name of the disease in the url above.
 ### Run CellRank
 ```
 #Extract the relevant files from the MalaCards .html file downloaded in the above step
+#Define arguments for CellRank extractMalacards() function
 path<-"path-to-where-data-was-extracted"
-extractMalacards(disease = "LAM",files = c(name-of-html-file),path = path)
+disease<-"LAM"
+extractMalacards(disease = disease,files = c(name-of-html-file),path = path)
 
-#Define arguments for CellRank
+#Define arguments for CellRank runBasicAnalysis() function
 annotate<-TRUE
 userlabel<-"label"
 usercelltype<-"celltype"
@@ -59,11 +61,11 @@ listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,
 
 
 
-#Perform mapping and ranking steps
+#Perform mapping and ranking steps you can use the output from the runBasicAnalysis() diretly in the rankCells() function
 listofCellRanks<-rankCells(listofoutput[[1]],"Cell",listofoutput[[2]],listofoutput[[3]],listofoutput[[4]],
 listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,12,12,checkdrug,scenario="Malacards")
 
-#Run CellChat not the first label is considered as the reference (control)
+#Run CellChat - note the first label is considered as the reference (control)
 foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
 
 #Peform basic plots
