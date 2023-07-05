@@ -33,31 +33,32 @@ A test datsets from lymphangioleiomyomatosis (LAM) disease and control (Donor) s
 
 ### Run Cell Rank
 
-#Define arguments for CellRank
-userlabel<-"label"
-usercelltype<-"celltype"
-annotate<-TRUE
-path<-"path-to-where-data-was-extracted"
-checkdrug<-TRUE
-#Run basic analysis and search databases
-listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
-          usercelltype = usercelltype,scenario = "Malacards",keywordsWikiUser = keywordsWiki,keywordsKEGGUser = keywordsKEGG,
-          keywordsGOUser =keywordsGO,keywordsMSIGUser = keywordsMSIG,keywordsReactUser = keywordsReact,
-          keywordsMOAUser = keywordsMOA)
+#Define arguments for CellRank\
+userlabel<-"label"\
+usercelltype<-"celltype"\
+annotate<-TRUE\
+path<-"path-to-where-data-was-extracted"\
+checkdrug<-TRUE\
+#Run basic analysis and search databases\
+listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,\
+          usercelltype = usercelltype,scenario = "Malacards",keywordsWikiUser = keywordsWiki,keywordsKEGGUser = keywordsKEGG,\
+          keywordsGOUser =keywordsGO,keywordsMSIGUser = keywordsMSIG,keywordsReactUser = keywordsReact,\
+          keywordsMOAUser = keywordsMOA)\
 
 
 
-#Perform mapping and ranking steps
-listofCellRanks<-rankCells(listofoutput[[1]],"Cell",listofoutput[[2]],listofoutput[[3]],listofoutput[[4]],listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,12,12,checkdrug,scenario="Malacards")
+#Perform mapping and ranking steps\
+listofCellRanks<-rankCells(listofoutput[[1]],"Cell",listofoutput[[2]],listofoutput[[3]],listofoutput[[4]],\
+listofoutput[[5]],listofoutput[[6]],listofoutput[[7]],userlabel,usercelltype,12,12,12,checkdrug,scenario="Malacards")\
 
-#Run CellChat not the first label is considered as the reference (control)
-foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
+#Run CellChat not the first label is considered as the reference (control)\
+foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)\
 
-#Peform basic plots
-plotRanks(filename-to-Ranking-results)
-plotCellChat(filename-to-CellChat-results)
-plotTotalNumberDEGs(filename-to-Total-DEG-results)
-plotProportions(filename-to-Cell-Proportion-results)
+#Peform basic plots\
+plotRanks(filename-to-Ranking-results)\
+plotCellChat(filename-to-CellChat-results)\
+plotTotalNumberDEGs(filename-to-Total-DEG-results)\
+plotProportions(filename-to-Cell-Proportion-results)\
 
 
 
