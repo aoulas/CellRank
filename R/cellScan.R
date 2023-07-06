@@ -430,10 +430,17 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
     EucValues<-cbind(EucValues,fromlist2[,2])
   }
   colnames(Ranks)<-c("DRUG","KEGG","GOBP","MSIG","WIKI","REACT")
-  rownames(Ranks)<-fromlist2$cellID
-
+  if(scan=="Cell"){
+    rownames(Ranks)<-fromlist2$cellID
+  }else{
+    rownames(Ranks)<-"Bulk"
+  }
   colnames(EucValues)<-c("DRUG","KEGG","GOBP","MSIG","WIKI","REACT")
-  rownames(EucValues)<-fromlist2$cellID
+  if(scan=="Cell"){
+    rownames(EucValues)<-fromlist2$cellID
+  }else{
+    rownames(EucValues)<-"Bulk"
+  }
   write.table(Ranks,paste("Ranks",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
   write.table(EucValues,paste("EucValues",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
 
@@ -453,13 +460,15 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
   TotalNumberDEGs <-TotalNumberDEGs[order(TotalNumberDEGs$Var1), ]
   write.table(TotalNumberDEGs,"TotalNumberDEGsPac.txt",quote = F,row.names = T,sep = "\t")
 
+  if(scan=="Cell"){
     # # How many cells are in each cell type or condition?
-  Nocellspercelltype<-as.data.frame(table(seuratObject[[usercelltype]][,1]))
-  Nocellspercelltype<-arrange(Nocellspercelltype, Nocellspercelltype$Var1)
+    Nocellspercelltype<-as.data.frame(table(seuratObject[[usercelltype]][,1]))
+    Nocellspercelltype<-arrange(Nocellspercelltype, Nocellspercelltype$Var1)
 
-  TotalNumberDEGsNorm<-as.data.frame(TotalNumberDEGs$TotalNumberDEGs/Nocellspercelltype$Freq)
-  rownames(TotalNumberDEGsNorm)<-Nocellspercelltype$Var1
-  colnames(TotalNumberDEGsNorm)[1]<-c("TotalNumberDEGsNorm")
-  write.table(TotalNumberDEGsNorm,"TotalNumberDEGsNormPac.txt",quote = F,row.names = T,sep = "\t")
+    TotalNumberDEGsNorm<-as.data.frame(TotalNumberDEGs$TotalNumberDEGs/Nocellspercelltype$Freq)
+    rownames(TotalNumberDEGsNorm)<-Nocellspercelltype$Var1
+    colnames(TotalNumberDEGsNorm)[1]<-c("TotalNumberDEGsNorm")
+    write.table(TotalNumberDEGsNorm,"TotalNumberDEGsNormPac.txt",quote = F,row.names = T,sep = "\t")
+  }
   return(listofCellRanks)
 }
