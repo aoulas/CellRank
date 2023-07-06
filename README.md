@@ -15,7 +15,7 @@ devtools::install_github("aoulas/CellRank")
 
 Please make sure you have installed all the dependencies. See instructions below.
 
-## Installation of  dependencies
+## Installation of dependencies
 ### CRAN packages
 Seurat, dplyr, patchwork, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, RColorBrewer, crank, riverplot, rvest, stringr.
 ### Bioconductor packages
@@ -26,3 +26,60 @@ SeuratDisk, CellChat.
 Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
 
 Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
+
+## Tutorial
+### Downlaod test data 
+A test datsets from lymphangioleiomyomatosis (LAM) disease and control (Donor) samples is available for download [here](https://bioinformatics.cing.ac.cy/downloads/scRNA/LAM.tar.gz). Extract data in a local directory.
+
+### Extract prior knowledge from MalaCards database
+Paste the following link in your borwser.
+```
+https://www.malacards.org/card/lymphangioleiomyomatosis?showAll=TRUE
+```
+For a differnet disease you can change the name of the disease in the url above. Make sure the disease exists with the same name in the database. Ensure to add the 'showAll=TRUE' flag to expand all tables in the web page (this may take some time to load). Once the page has loaded right-click and click save-as to download the html content to the same directory as the test data downloaded above.
+
+### Run CellRank
+```
+library(CellRank)
+#Extract the relevant files from the MalaCards .html file downloaded in the above step
+#Define arguments for CellRank extractMalacards() function
+path<-"path-to-where-data-was-extracted"
+disease<-"LAM"
+extractMalacards(disease = disease,files = c("name-of-html-file"),path = path)
+
+#Define arguments for CellRank runBasicAnalysis() function
+annotate<-TRUE
+userlabel<-"label"
+usercelltype<-"celltype"
+checkdrug<-TRUE
+scenario<-"Malacards"
+
+#Run basic analysis and search databases
+listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
+          usercelltype = usercelltype,scenario=scenario)
+
+seuratObject<-listofoutput[[1]]
+priorknowledgePathsKEGG<-listofoutput[[2]]
+priorknowledgePathsGO<-listofoutput[[3]]
+priorknowledgePathsMSIG<-listofoutput[[4]]
+priorknowledgePathsWiki<-listofoutput[[5]]
+priorknowledgePathsReact<-listofoutput[[6]]
+priorknowledgeDRUGSMOA<-listofoutput[[7]]
+
+#Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
+listofCellRanks<-rankCells(seuratObject,"Cell",priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
+priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
+
+#Run CellChat - note the first label is considered as the reference (control)
+foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
+
+#Peform basic plots
+plotRanks("filename-of-Ranking-results")
+plotCellChat("filename-of-CellChat-results")
+plotTotalNumberDEGs("filename-of-Total-DEG-results")
+plotProportions("filename-of-Cell-Proportion-results")
+```
+
+
+
+
