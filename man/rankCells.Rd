@@ -11,7 +11,7 @@ Scan all cells in the anlaysis by mapping prior knowledge
 \usage{
 rankCells(seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
 priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,
-cellIDs,nposPathKEGG,nposPathGO,nposMOA,checkdrug)
+cellIDs,checkdrug)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

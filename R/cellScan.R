@@ -1,4 +1,4 @@
-rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,cellIDs,nposPathKEGG,nposPathGO,nposMOA,checkdrug,scenario){
+rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,cellIDs,checkdrug,scenario){
 
   seuratObject$labels.cellIDs <- paste(as.character(seuratObject[[labels]][,1]), as.character(seuratObject[[cellIDs]][,1]), sep = "_")
   Idents(seuratObject) <- "labels.cellIDs"
@@ -12,9 +12,9 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
   DefaultAssay(seuratObject) <- "RNA"
   tablecellclounts <-table(seuratObject@meta.data$nCount_RNA, seuratObject@meta.data$labels.cellIDs)
   tablecellclounts<-as.data.frame(colSums(tablecellclounts))
-  seuratObjectcellIDmatchesMOA<-c()
+  #seuratObjectcellIDmatchesMOA<-c()
   seuratObjectcellIDmatchesMOAEuc<-c()
-  seuratObjectcellIDmatchesPATHS<-c()
+  #seuratObjectcellIDmatchesPATHS<-c()
   seuratObjectcellIDmatchesPATHSEuc<-c()
   seuratObjectcellIDmatchesPATHSGOEuc<-c()
   seuratObjectcellIDmatchesPATHSMSIGEuc<-c()
@@ -259,18 +259,18 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
           # plot(r,plot_area=1,nodewidth=18,default_style=d,yscale=1,add=TRUE,usr=c(1,len,1,len))
           ############################################################################################################
 
-          if(nposPathKEGG==0){
-            nposPathKEGG<-nrow(paths)
-          }
-          if(nposPathGO==0){
-            nposPathGO<-nrow(pathsGO)
-          }
-
-          if((length(matchKEGG) != 0 && length(which(c(1:nposPathKEGG)%in%matchKEGGIndexes)) !=0) || (length(matchGO) !=0 && length(which(c(1:nposPathGO)%in%matchGOIndexes)))){
-            seuratObjectcellIDmatchesPATHS<-rbind(seuratObjectcellIDmatchesPATHS,cbind(cellID,"1"))
-          }else{
-            seuratObjectcellIDmatchesPATHS<-rbind(seuratObjectcellIDmatchesPATHS,cbind(cellID,"0"))
-          }
+          # if(nposPathKEGG==0){
+          #   nposPathKEGG<-nrow(paths)
+          # }
+          # if(nposPathGO==0){
+          #   nposPathGO<-nrow(pathsGO)
+          # }
+          #
+          # if((length(matchKEGG) != 0 && length(which(c(1:nposPathKEGG)%in%matchKEGGIndexes)) !=0) || (length(matchGO) !=0 && length(which(c(1:nposPathGO)%in%matchGOIndexes)))){
+          #   seuratObjectcellIDmatchesPATHS<-rbind(seuratObjectcellIDmatchesPATHS,cbind(cellID,"1"))
+          # }else{
+          #   seuratObjectcellIDmatchesPATHS<-rbind(seuratObjectcellIDmatchesPATHS,cbind(cellID,"0"))
+          # }
 
           drugsUp<-enrichedUp[["Old_CMAP_down"]]$Term[which(enrichedUp[["Old_CMAP_down"]]$P.value <0.05)]
           drugsUp<-gsub("-[0-9]+$","",drugsUp)
@@ -374,14 +374,14 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
             celleuc<-euclidean(c(1:length(priorknowledgeMOA)),matchMOAIndexesOrdered)
           }
           seuratObjectcellIDmatchesMOAEuc<-rbind(seuratObjectcellIDmatchesMOAEuc,cbind(cellID,celleuc))
-          if(nposMOA==0){
-            nposMOA<-nrow(tableMOAs)
-          }
-          if(length(matchMOA) != 0 && length(which(c(1:nposMOA)%in%matchMOAIndexes)) !=0){
-            seuratObjectcellIDmatchesMOA<-rbind(seuratObjectcellIDmatchesMOA,cbind(cellID,"1"))
-          }else{
-            seuratObjectcellIDmatchesMOA<-rbind(seuratObjectcellIDmatchesMOA,cbind(cellID,"0"))
-          }
+          # if(nposMOA==0){
+          #   nposMOA<-nrow(tableMOAs)
+          # }
+          # if(length(matchMOA) != 0 && length(which(c(1:nposMOA)%in%matchMOAIndexes)) !=0){
+          #   seuratObjectcellIDmatchesMOA<-rbind(seuratObjectcellIDmatchesMOA,cbind(cellID,"1"))
+          # }else{
+          #   seuratObjectcellIDmatchesMOA<-rbind(seuratObjectcellIDmatchesMOA,cbind(cellID,"0"))
+          # }
           mlist<-rbind(mlist,rep(c(cellID),times=ncol(paths)),paths,pathsGO)
         }
       }else{
@@ -405,21 +405,22 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
     seuratObjectcellIDmatchesPATHSMSIGEuc[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesPATHSWikiEuc[1,1]<-"Bulk.RNA"
     colnames(seuratObjectcellIDmatchesPATHS)<-c("Bulk)RNA","Matched_Paths")
-    seuratObjectcellIDmatchesPATHS[1,1]<-"Bulk.RNA"
+    #seuratObjectcellIDmatchesPATHS[1,1]<-"Bulk.RNA"
   }else{
-    colnames(seuratObjectcellIDmatchesMOA)<-c("cellIDs","Matched_MOA")
-    colnames(seuratObjectcellIDmatchesPATHS)<-c("cellIDs","Matched_Paths")
+    #colnames(seuratObjectcellIDmatchesMOA)<-c("cellIDs","Matched_MOA")
+    #colnames(seuratObjectcellIDmatchesPATHS)<-c("cellIDs","Matched_Paths")
     Allavelog2FC<-as.data.frame(Allavelog2FC)
     rownames(Allavelog2FC)<-as.character(unique(seuratObject[[cellIDs]][,1]))
     TotalNumberDEGs<-as.data.frame(TotalNumberDEGs)
     rownames(TotalNumberDEGs)<-as.character(unique(seuratObject[[cellIDs]][,1]))
   }
-  listofCellRanks <- list(seuratObjectcellIDmatchesMOAEuc,seuratObjectcellIDmatchesMOA,seuratObjectcellIDmatchesPATHS,seuratObjectcellIDmatchesPATHSEuc,seuratObjectcellIDmatchesPATHSGOEuc,seuratObjectcellIDmatchesPATHSMSIGEuc,seuratObjectcellIDmatchesPATHSWikiEuc,seuratObjectcellIDmatchesPATHSReactEuc,tableMOAsAll,AllEnrichedPathsKEGGandGO,Allavelog2FC,TotalNumberDEGs)#mlist,
+
+  listofCellRanks <- list(seuratObjectcellIDmatchesMOAEuc,seuratObjectcellIDmatchesPATHSEuc,seuratObjectcellIDmatchesPATHSGOEuc,seuratObjectcellIDmatchesPATHSMSIGEuc,seuratObjectcellIDmatchesPATHSWikiEuc,seuratObjectcellIDmatchesPATHSReactEuc,tableMOAsAll,AllEnrichedPathsKEGGandGO,Allavelog2FC,TotalNumberDEGs)#mlist,
 
 
   Ranks<-c()
   EucValues<-c()
-  for(li in c(1,4,5,6,7,8)){
+  for(li in c(1,2,3,4,5,6)){
     print(li)
     fromlist<-as.data.frame(listofCellRanks[[li]])
     fromlist[,2]<-as.numeric(fromlist[,2])
@@ -443,10 +444,10 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
   write.table(MeanRanks,paste("MeanRanks",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
 
 
-  Allavelog2FC<-as.data.frame(listofCellRanks[[11]])
+  Allavelog2FC<-as.data.frame(listofCellRanks[[9]])
   write.table(Allavelog2FC,"Allavelog2FCPac.txt",quote = F,row.names = T,sep = "\t")
 
-  TotalNumberDEGs<-as.data.frame(listofCellRanks[[12]])
+  TotalNumberDEGs<-as.data.frame(listofCellRanks[[10]])
   TotalNumberDEGs$Var1<-rownames(TotalNumberDEGs)
   TotalNumberDEGs<-as.data.frame(TotalNumberDEGs)
   TotalNumberDEGs <-TotalNumberDEGs[order(TotalNumberDEGs$Var1), ]
