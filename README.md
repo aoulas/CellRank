@@ -68,7 +68,7 @@ priorknowledgeDRUGSMOA<-listofoutput[[7]]
 
 #Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
 listofCellRanks<-rankCells(seuratObject,"Cell",priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
-priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,12,12,12,checkdrug,scenario=scenario)
+priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
 
 #Run CellChat - note the first label is considered as the reference (control)
 foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
