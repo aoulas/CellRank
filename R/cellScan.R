@@ -397,14 +397,14 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
     }
   }
   if(scan=="Bulk"){
-    colnames(seuratObjectcellIDmatchesMOA)<-c("Bulk_RNA","Matched_MOA")
-    seuratObjectcellIDmatchesMOA[1,1]<-"Bulk.RNA"
+    #colnames(seuratObjectcellIDmatchesMOA)<-c("Bulk_RNA","Matched_MOA")
+    #seuratObjectcellIDmatchesMOA[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesMOAEuc[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesPATHSEuc[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesPATHSGOEuc[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesPATHSMSIGEuc[1,1]<-"Bulk.RNA"
     seuratObjectcellIDmatchesPATHSWikiEuc[1,1]<-"Bulk.RNA"
-    colnames(seuratObjectcellIDmatchesPATHS)<-c("Bulk)RNA","Matched_Paths")
+    #colnames(seuratObjectcellIDmatchesPATHS)<-c("Bulk)RNA","Matched_Paths")
     #seuratObjectcellIDmatchesPATHS[1,1]<-"Bulk.RNA"
   }else{
     #colnames(seuratObjectcellIDmatchesMOA)<-c("cellIDs","Matched_MOA")
