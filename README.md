@@ -53,6 +53,7 @@ userlabel<-"label"
 usercelltype<-"celltype"
 checkdrug<-TRUE
 scenario<-"Malacards"
+scan<-"Cell"
 
 #Run basic analysis and search databases
 listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
@@ -67,7 +68,7 @@ priorknowledgePathsReact<-listofoutput[[6]]
 priorknowledgeDRUGSMOA<-listofoutput[[7]]
 
 #Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
-listofCellRanks<-rankCells(seuratObject,"Cell",priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
+listofCellRanks<-rankCells(seuratObject,scan=scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
 priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
 
 #Run CellChat - note the first label is considered as the reference (control)
