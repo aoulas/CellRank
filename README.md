@@ -72,7 +72,7 @@ listofCellRanks<-rankCells(seuratObject,scan=scan,priorknowledgePathsKEGG,priork
 priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
 
 #Run CellChat - note the first label is considered as the reference (control)
-foldchangeInterMat<-runCellChat(listofoutput[[1]],userlabel,usercelltype)
+foldchangeInterMat<-runCellChat(seuratObject,userlabel,usercelltype)
 
 #Peform basic plots
 plotRanks("filename-of-Ranking-results")
