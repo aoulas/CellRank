@@ -42,7 +42,8 @@ For a differnet disease you can change the name of the disease in the url above.
 ```
 library(CellRank)
 #Extract the relevant files from the MalaCards .html file downloaded in the above step
-#Define common arguments for CellRank extractMalacards() and runBasicAnalysis() functions (note* the path and disease name has to be common for both these funnctions to work properly)
+#Define common arguments for CellRank extractMalacards() and runBasicAnalysis() functions (note* the path and disease name has
+to be common for both these funnctions to work properly)
 path<-"path-to-where-data-was-extracted"
 disease<-"LAM"
 extractMalacards(disease = disease,files = c("name-of-html-file"),path = path)
