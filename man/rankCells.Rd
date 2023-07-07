@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-Scan all cells in the anlaysis by mapping prior knowledge
+Rank all cells in the anlaysis by mapping to prior knowledge
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~

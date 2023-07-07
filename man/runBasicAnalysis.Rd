@@ -2,7 +2,7 @@
 \alias{runBasicAnalysis}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Rank cell types under a scRNA-Seq framework
+Run basic analysis for a scRNA-Seq dataset
 %%  ~~function to do ... ~~
 }
 \description{
@@ -74,6 +74,8 @@ The path paremter should point to a directory containing either of the following
 
 Data can be provided in any of the following supported formats:
 1) barcodes.tsv, genes.tsv, matrix.mtx, 2) H5 format, 3) SEURAT objects. If a metadata file exists with further annontations it may be supplied in the individual subdirectorie(s) as a file with the name "meta.txt".
+
+Two options for this function to work 1) For the Malacards scenario, this function works with the output of the extractMalacards() function. This extracts prior knowledge output files which should be saved in the same path/diretory as the one containing the data. 2) For the Hypothesis scenario the user has to supply the prior knowledge. The function will then scan the relevant databases and return the results for inspection.
 }
 \value{
 %%  ~Describe the value returned

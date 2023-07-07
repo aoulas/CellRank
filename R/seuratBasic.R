@@ -513,59 +513,9 @@ runBasicAnalysis<-function(disease,path,annotate=TRUE,scenario="Malacards",check
     }
     termsMOA<-unique(termsMOA)
   }
-  #Perform mapping and ranking steps
-  #listofCellRanks<-scanCells(loaded.dataSO.combined,"Cell",termsKEGG,termsGO,termsMSIG,termsWiki,termsReact,termsMOA,userlabel,usercelltype,12,12,12,checkdrug)
-
-
-  # Ranks<-c()
-  # EucValues<-c()
-  # for(li in c(1,4,5,6,7,8)){
-  #   print(li)
-  #   fromlist<-as.data.frame(listofCellRanks[[li]])
-  #   fromlist[,2]<-as.numeric(fromlist[,2])
-  #   fromlist <- arrange(fromlist, fromlist[,2])
-  #   fromlist2 <- arrange(fromlist, fromlist[,1])
-  #   Ranks<-cbind(Ranks,rank(fromlist2[,2]))
-  #   EucValues<-cbind(EucValues,fromlist2[,2])
-  # }
-  # colnames(Ranks)<-c("DRUG","KEGG","GOBP","MSIG","WIKI","REACT")
-  # rownames(Ranks)<-fromlist2$cellID
-  #
-  # colnames(EucValues)<-c("DRUG","KEGG","GOBP","MSIG","WIKI","REACT")
-  # rownames(EucValues)<-fromlist2$cellID
-  # write.table(Ranks,paste("Ranks",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
-  # write.table(EucValues,paste("EucValues",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
-  #
-  # MeanRanks<-as.data.frame(meanranks(t(Ranks))$mean.ranks)
-  # colnames(MeanRanks)<-c("Mean Ranking")
-  # MeanRanks<-arrange(MeanRanks,MeanRanks$`Mean Ranking`)
-  #
-  # write.table(MeanRanks,paste("MeanRanks",scenario,"PlusWikiReactFinalPac.txt",sep=""),quote = F,row.names = T,sep = "\t")
-  #
-  #
-  # Allavelog2FC<-as.data.frame(listofCellRanks[[11]])
-  # write.table(Allavelog2FC,"Allavelog2FCPac.txt",quote = F,row.names = T,sep = "\t")
-  #
-  # TotalNumberDEGs<-as.data.frame(listofCellRanks[[12]])
-  # TotalNumberDEGs$Var1<-rownames(TotalNumberDEGs)
-  # TotalNumberDEGs<-as.data.frame(TotalNumberDEGs)
-  # TotalNumberDEGs <-TotalNumberDEGs[order(TotalNumberDEGs$Var1), ]
-  # write.table(TotalNumberDEGs,"TotalNumberDEGsPac.txt",quote = F,row.names = T,sep = "\t")
-  #
-  # foldchangeInterMat<-runCellChat(loaded.dataSO.combined,userlabel,usercelltype)
-  # write.table(foldchangeInterMat,"CellChatPac.txt",quote = F,row.names = F,sep = "\t")
-  #
-  # # # How many cells are in each cell type or condition?
-  # Nocellspercelltype<-as.data.frame(table(loaded.dataSO.combined[[usercelltype]][,1]))
-  # Nocellspercelltype<-arrange(Nocellspercelltype, Nocellspercelltype$Var1)
-  #
-  # TotalNumberDEGsNorm<-as.data.frame(TotalNumberDEGs$TotalNumberDEGs/Nocellspercelltype$Freq)
-  # rownames(TotalNumberDEGsNorm)<-Nocellspercelltype$Var1
-  # colnames(TotalNumberDEGsNorm)[1]<-c("TotalNumberDEGsNorm")
-  # write.table(TotalNumberDEGsNorm,"TotalNumberDEGsNormPac.txt",quote = F,row.names = T,sep = "\t")
 
   # What proportion of cells are in each cluster?
-  pie(prop.table(table(loaded.dataSO.combined[[usercelltype]][,1])))
+  pie(prop.table(table(loaded.dataSO.combined[[usercelltype]][,1])),main = "Proportion of cells per cell-type")
   #prop.table(table(Idents(loaded.dataSO.combined))) #same result
 
   # How does cluster membership vary by condition?
