@@ -22,7 +22,7 @@ Seurat, dplyr, patchwork, metap, ggplot2, cowplot, enrichR, gridExtra, ggpubr, R
 KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, multtest, msigdb.
 ### GitHub packages
 SeuratDisk: remotes::install_github("mojaveazure/seurat-disk")\
-CellChat: devtools::install_github("sqjin/CellChat")\
+CellChat: devtools::install_github("sqjin/CellChat")
 
 Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
 
