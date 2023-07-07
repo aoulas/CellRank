@@ -18,7 +18,7 @@ plotTotalNumberDEGs(filename, title = "Total DEGs Rankings")
   }
   \item{title}{
 %%     ~~Describe \code{title} here~~
-  \code{Title for the plot (Default = 'Total DEGs Rankings')}
+  \code{Title for the plot (Default = "Total DEGs Rankings")}
 }
 }
 \details{

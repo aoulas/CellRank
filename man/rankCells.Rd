@@ -9,9 +9,18 @@ Scan all cells in the anlaysis by mapping prior knowledge
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-rankCells(seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
-priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,
-cellIDs,checkdrug)
+rankCells(
+  seuratObject,
+  scan="Cell",
+  priorknowledgePathsKEGG,
+  priorknowledgePathsGO,
+  priorknowledgePathsMSIG,
+  priorknowledgePathsWiki,
+  priorknowledgePathsReact,
+  priorknowledgeMOA,labels,
+  cellIDs,
+  checkdrug=TRUE
+)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,7 +28,7 @@ cellIDs,checkdrug)
   \code{The SEURAT object to analyse}
   }
   \item{scan}{
-  \code{Define whether to scan single-cell or simulate bulk RNA (takes two values defualt='Cell' or 'Bulk')}
+  \code{Define whether to scan single-cell or simulate bulk RNA (takes two values defualt="Cell" or "Bulk")}
   }
   \item{priorknowledgePathsKEGG}{
   \code{Define the prior knowdledge from KEGG pathways}
@@ -55,7 +64,7 @@ Works with the output of the basic analysis function which is in the form of a S
 }
 \value{
 %%  ~Describe the value returned
-\item{seuratObject }{A SEURAT object obtained from teh basic analysis funtion}
+\item{seuratObject }{A SEURAT object obtained from the basic analysis funtion}
 \item{scan }{A Character string the type of analysis to perform (Cell of Bulk).}
 \item{priorknowledgePathsKEGG }{A  Character vector with the prior knowledge information from KEGG.}
 \item{priorknowledgePathsGO }{A  Character vector with the prior knowledge information from GO .}
@@ -65,7 +74,7 @@ Works with the output of the basic analysis function which is in the form of a S
 \item{priorknowledgeMOA }{A  Character vector with the names of drugs of drug MOAs from CMAP to be used as prior knowledge.}
 \item{labels }{A  Character String with the name of the column in the SEURAT object defining the sample labels to be used for DEG identification.}
 \item{cellIDs }{A  Character String with the name of the column in the SEURAT object defining the annotated cell IDs.}
-\item{checkdrug }{A Boolean (TRUE/FALSE) denoting whether use drug names (defauls=TRUE) alternative option for MOAs=FALSE.}
+\item{checkdrug }{A Boolean (TRUE/FALSE) denoting whether to use drug names (default=TRUE) or alternatively MOAs (FALSE).}
 }
 \references{
 %% ~put references to the literature/web site here ~

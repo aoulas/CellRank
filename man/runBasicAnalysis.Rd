@@ -9,9 +9,21 @@ Rank cell types under a scRNA-Seq framework
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-runBasicAnalysis(disease,path,annotate = TRUE,scenario=Malacards,checkdrug = TRUE,
-userlabel,usercelltype,keywordsWikiUser,keywordsKEGGUser,
-keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser)
+runBasicAnalysis(
+  disease,
+  path,
+  annotate = TRUE,
+  scenario="Malacards",
+  checkdrug = TRUE,
+  userlabel,
+  usercelltype,
+  keywordsWikiUser,
+  keywordsKEGGUser,
+  keywordsGOUser,
+  keywordsMSIGUser,
+  keywordsReactUser,
+  keywordsMOAUser
+)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,13 +35,13 @@ keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser)
   \code{The path to the directory containing the data}
   }
   \item{annotate}{
-  \code{Define whether the data is annotated or if annoation is required (default=TRUE). If FALSE then annotation will be performed automatically using the 100 most significant marker genes, for each cell type, across three marker gene databases ("PanglaoDB_Augmented_2021","CellMarker_Augmented_2021","Tabula_Sapiens")}
+  \code{Define whether the data is annotated or if annoation is required (default=TRUE). If FALSE then annotation will be performed automatically using the 100 most significant marker genes for each cell type across three marker gene databases ("PanglaoDB_Augmented_2021","CellMarker_Augmented_2021","Tabula_Sapiens").}
   }
   \item{scenario}{
-  \code{Define which scenario/approcah to use (takes two values: Malacards=default, or Hypothesis)}
+  \code{Define which scenario/approcah to use (takes two values: default="Malacards", or "Hypothesis")}
   }
   \item{checkdrug}{
-  \code{Define whether to use drug names for the Malcards approach (default=TRUE), or dug mode of actions (MOAs) (Hypothesis-driven)}
+  \code{Define whether to use drug names for the Malacards scenario (default=TRUE), or dug mode of actions (MOAs) (Hypothesis scenario)}
   }
   \item{userlabel}{
   \code{Define the name of the SEURAT object column containing disease-control labels (if data is not annotated this needs to be defined, otherwise if will take the default value 'label')}
@@ -58,7 +70,7 @@ keywordsGOUser,keywordsMSIGUser,keywordsReactUser,keywordsMOAUser)
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-The path paremter should point to a directory containing either of the following: 1) The data supplied in seperate subdirectories for all the samples in the analysis. The names given to the sample subdirectories will be used later for labeling the samples and therefore have to be structured correctly in the form of: unique label followd by a number (e.g., Disease1, Disease2, Disease3, Control1, Control2, Control3 - where "Disease" can be substituted with the actual name of the disease characterized by the data). 2) The data in an already inetgrated format in a single subdirectory within the directory provided by the path parameter.
+The path paremter should point to a directory containing either of the following: 1) The data supplied in seperate subdirectories for all the samples in the analysis. The names given to the sample subdirectories will be used later for labeling the samples and therefore have to be structured correctly in the form of: unique label followed by a number (e.g., Disease1, Disease2, Disease3, Control1, Control2, Control3). 2) The data in an already inetgrated format in a single subdirectory within the directory provided by the path parameter.
 
 Data can be provided in any of the following supported formats:
 1) barcodes.tsv, genes.tsv, matrix.mtx, 2) H5 format, 3) SEURAT objects. If a metadata file exists with further annontations it may be supplied in the individual subdirectorie(s) as a file with the name "meta.txt".
