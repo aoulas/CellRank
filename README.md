@@ -42,12 +42,12 @@ For a differnet disease you can change the name of the disease in the url above.
 ```
 library(CellRank)
 #Extract the relevant files from the MalaCards .html file downloaded in the above step
-#Define arguments for CellRank extractMalacards() function
+#Define common arguments for CellRank extractMalacards() and runBasicAnalysis() functions (note* the path and disease name has to be common for both these funnctions to work properly)
 path<-"path-to-where-data-was-extracted"
 disease<-"LAM"
 extractMalacards(disease = disease,files = c("name-of-html-file"),path = path)
 
-#Define arguments for CellRank runBasicAnalysis() function
+#Define extra arguments for CellRank runBasicAnalysis() function
 annotate<-TRUE
 userlabel<-"label"
 usercelltype<-"celltype"
@@ -67,7 +67,7 @@ priorknowledgePathsWiki<-listofoutput[[5]]
 priorknowledgePathsReact<-listofoutput[[6]]
 priorknowledgeDRUGSMOA<-listofoutput[[7]]
 
-#Perform mapping and ranking steps you can use the output from the runBasicAnalysis() directly in the rankCells() function
+#Perform mapping and ranking steps - you can use the output from the runBasicAnalysis() directly in the rankCells() function.
 listofCellRanks<-rankCells(seuratObject,scan=scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
 priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
 
