@@ -107,6 +107,9 @@ runBasicAnalysis<-function(disease,path,annotate=TRUE,scenario="Malacards",check
   #   dirs<-dirs[c(1,2,13,20,27,28,29)] #changed this for mm
   # }
 
+  #remove directory with html files
+  indexhtmlfiles<-grep("*_files",dirs)
+  dirs<-dirs[-indexhtmlfiles]
   #start from 2 to avoid home directory
   for(i in 2:length(dirs)){
     data_dir<-dirs[i]
