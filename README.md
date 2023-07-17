@@ -24,10 +24,6 @@ KEGGREST, GO.db, rWikiPathways, ReactomeContentService4R, multtest, msigdb.
 SeuratDisk: remotes::install_github("mojaveazure/seurat-disk")\
 CellChat: devtools::install_github("sqjin/CellChat")
 
-Some users might have issues when installing CellChat pacakge due to different operating systems and new R version. Please check the following solutions:
-
-Installation on [Windows](https://github.com/sqjin/CellChat/issues/5)
-
 ## Tutorial
 ### Downlaod test data 
 A test datsets from lymphangioleiomyomatosis (LAM) disease and control (Donor) samples is available for download [here](https://bioinformatics.cing.ac.cy/downloads/scRNA/LAM.tar.gz). Extract data in a local directory.
