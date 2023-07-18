@@ -58,6 +58,7 @@ scan<-"Cell"
 listofoutput<-runBasicAnalysis(disease = disease,path=path ,annotate = annotate,userlabel = userlabel,
           usercelltype = usercelltype,scenario=scenario)
 
+#Define extra arguments for CellRank rankCells() function
 seuratObject<-listofoutput[[1]]
 priorknowledgePathsKEGG<-listofoutput[[2]]
 priorknowledgePathsGO<-listofoutput[[3]]
