@@ -1,4 +1,4 @@
-rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,cellIDs,checkdrug,scenario){
+rankCells<-function (seuratObject,path,scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeMOA,labels,cellIDs,checkdrug,scenario){
 
   seuratObject$labels.cellIDs <- paste(as.character(seuratObject[[labels]][,1]), as.character(seuratObject[[cellIDs]][,1]), sep = "_")
   Idents(seuratObject) <- "labels.cellIDs"
@@ -290,7 +290,7 @@ rankCells<-function (seuratObject,scan,priorknowledgePathsKEGG,priorknowledgePat
             if (websiteLive) plot(plotEnrich(enrichedUp[["Old_CMAP_down"]], showTerms = 40, numChar = 40, y = "Count", orderBy = "P.value",title = paste("CMAP", "Bulk", "UP",sep=" "))+plotEnrich(enrichedDown[["Old_CMAP_up"]], showTerms = 40, numChar = 40, y = "Count", orderBy = "P.value",title = paste("CMAP", "Bulk", "Down",sep=" ")))
           }
 
-          drugInfo<-read.delim("../drug_repurposing_hub.txt")
+          drugInfo<-read.delim(paste(path,"drug_repurposing_hub.txt",sep=""))
           AlldrugsCellIDs<-c()
           if(length(drugsUp) > 50){
             AlldrugsCellIDs<-c(AlldrugsCellIDs,drugsUp[1:50])

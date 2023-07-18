@@ -11,13 +11,15 @@ Rank all cells in the anlaysis by mapping to prior knowledge
 \usage{
 rankCells(
   seuratObject,
+  path,
   scan="Cell",
   priorknowledgePathsKEGG,
   priorknowledgePathsGO,
   priorknowledgePathsMSIG,
   priorknowledgePathsWiki,
   priorknowledgePathsReact,
-  priorknowledgeMOA,labels,
+  priorknowledgeMOA,
+  labels,
   cellIDs,
   checkdrug=TRUE
 )
@@ -26,6 +28,9 @@ rankCells(
 \arguments{
  \item{seuratObject}{
   \code{The SEURAT object to analyse}
+  }
+  \item{path}{
+  \code{Full path to where the data data was extracted}
   }
   \item{scan}{
   \code{Define whether to scan single-cell or simulate bulk RNA (takes two values defualt="Cell" or "Bulk")}
