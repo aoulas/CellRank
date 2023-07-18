@@ -41,7 +41,7 @@ library(CellRank)
 #Extract the relevant files from the MalaCards .html file downloaded in the above step
 #Define common arguments for CellRank extractMalacards() and runBasicAnalysis() functions
 #(note* the path and disease name has
-#to be common for both these funnctions to work properly)
+#to be common for all CellRank funnctions to work properly)
 path<-"full-path-to-where-data-was-extracted"
 disease<-"LAM"
 extractMalacards(disease = disease,files = c("name-of-html-file"),path = path)
@@ -66,7 +66,8 @@ priorknowledgePathsWiki<-listofoutput[[5]]
 priorknowledgePathsReact<-listofoutput[[6]]
 priorknowledgeDRUGSMOA<-listofoutput[[7]]
 
-#Perform mapping and ranking steps - you can use the output from the runBasicAnalysis() directly in the rankCells() function.
+#Perform mapping and ranking steps - you can use the output from the runBasicAnalysis()
+#directly in the rankCells() function.
 listofCellRanks<-rankCells(seuratObject,path,scan=scan,priorknowledgePathsKEGG,priorknowledgePathsGO,priorknowledgePathsMSIG,
 priorknowledgePathsWiki,priorknowledgePathsReact,priorknowledgeDRUGSMOA,userlabel,usercelltype,checkdrug,scenario=scenario)
 
