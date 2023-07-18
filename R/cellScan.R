@@ -289,7 +289,9 @@ rankCells<-function (seuratObject,path,scan,priorknowledgePathsKEGG,priorknowled
           }else{
             if (websiteLive) plot(plotEnrich(enrichedUp[["Old_CMAP_down"]], showTerms = 40, numChar = 40, y = "Count", orderBy = "P.value",title = paste("CMAP", "Bulk", "UP",sep=" "))+plotEnrich(enrichedDown[["Old_CMAP_up"]], showTerms = 40, numChar = 40, y = "Count", orderBy = "P.value",title = paste("CMAP", "Bulk", "Down",sep=" ")))
           }
-
+          if(!endsWith(path,"/")){
+            path<-paste(path,"/",sep="")
+          }
           drugInfo<-read.delim(paste(path,"drug_repurposing_hub.txt",sep=""))
           AlldrugsCellIDs<-c()
           if(length(drugsUp) > 50){
